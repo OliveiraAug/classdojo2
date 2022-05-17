@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="Pagina.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Pagina.css" />
+</head>
+<body style="background-color:black">
+    <input id="aluno" />
+    <form method="post">
+        <input type="hidden" name="csrfmiddlewaretoken" value="WWLrLUMzSnptvlxnBvoRjUnb4pO1NCN4pNyJucdJObflUPrLwB2ZSDhyRNf0EVwd">
+        <select id="mundos">
+            <option value="" selected="">---</option>
+            <option value="21">Lógica 1</option>
+            <option value="25">Lógica 2</option>
+            <option value="10">Games 1</option>
+            <option value="11">Games 2 GM</option>
+            <option value="71">Games 2 Construct</option>
+            <option value="13">Games 3</option>
+            <option value="36">Maker 1</option>
+            <option value="7">Maker 2</option>
+            <option value="125">Apps 1</option>
+            <option value="6">Apps 2</option>
+            <option value="20">Drones</option>
+            <option value="12">Web</option>
+        </select>
+        <select id="fases"></select>
+    </form>
+
+        <script>
+            $("#mundos").change(function () {
+                var url = "https://codebuddy.io/administracao/buscar-fases/" + this.value;
+                $.get(url, function (data) {
+                    $("#fases").empty();
+                    $("#fases").append(new Option('--', ''));
+                    console.log(data);
+                    for (var k in data) {
+                        $("#fases").append(new Option(data[k].titulo, data[k].id));
+                    }
+                });
+            });
+        </script>
+</body>
+</html>
