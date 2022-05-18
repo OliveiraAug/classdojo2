@@ -1,14 +1,24 @@
 #mundos {
     background-color: black;
-    color: white
+    color: white;
 }
 
 #fases {
     background-color: black;
-    color: white
+    color: white;
 }
 
 #aluno {
     background-color:black;
-    color:white
+    color:white;
+    float:left;
+}
+
+#formulario {
+    float:left;
+}
+
+body {
+    background-color: black;
+    color: white;
 }
